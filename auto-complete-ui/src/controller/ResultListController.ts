@@ -65,18 +65,22 @@ class ResultController implements IResultController {
     }
 
     public setObserver(element: Element = this.root): void {
-        const options: object = {}
-        const observer: IntersectionObserver = new IntersectionObserver((entries, observer) => {
+        const options: IntersectionObserverInit = {}
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     if (this.chunksArr.length > this.currentChunk) {
                         this.currentChunk = this.currentChunk + 1
                         this.renderList()
                     }
+                } else {
+                    return
                 }
                 observer.unobserve(entry.target)
                 if (element.lastElementChild) {
-                    observer.observe(element.lastElementChild)
+                    if (!element.lastElementChild.classList.contains('system-message')) {
+                        observer.observe(element.lastElementChild)
+                    }
                 }
             })
         }, options)
