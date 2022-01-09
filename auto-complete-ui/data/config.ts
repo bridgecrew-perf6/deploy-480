@@ -4,5 +4,4 @@ export default {
     nothingFound: 'Nothing found',
     thatsAll: 'Thats all (',
     enterTextInTheSearchFields: 'Enter text in the search fields '
-
 }

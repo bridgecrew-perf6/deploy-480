@@ -26,8 +26,6 @@ class ResultController implements IResultController {
     }
 
     public renderList(numberOfChunk: number = this.currentChunk): void {
-        console.log(this.chunksArr.length)
-        console.log(numberOfChunk)
         if (this.chunksArr.length && this.chunksArr[numberOfChunk] !== undefined) {
             const listWrapper: DocumentFragment = document.createDocumentFragment()
             this.chunksArr[numberOfChunk].forEach((elem) => {
@@ -67,6 +65,7 @@ class ResultController implements IResultController {
     }
 
     public setObserver(element: Element = this.root): void {
+        const options: object = {}
         const observer: IntersectionObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -80,9 +79,7 @@ class ResultController implements IResultController {
                     observer.observe(element.lastElementChild)
                 }
             })
-        }, {
-            threshold: 1
-        })
+        }, options)
         if (element.lastElementChild) {
             observer.observe(element.lastElementChild)
         }
