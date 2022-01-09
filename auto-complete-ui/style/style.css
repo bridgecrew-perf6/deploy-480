@@ -15,3 +15,12 @@
 .input {
   margin-bottom: 30px;
 }
+
+.welcome-message {
+  font-size: large;
+  color: green;
+}
+.system-message {
+  font-size: large;
+  color: tomato;
+}
