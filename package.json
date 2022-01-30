@@ -6,7 +6,7 @@
   "scripts": {
     "dev:ts": "tsc -watch",
     "dev:node": "nodemon dist/index.js",
-    "start": "tsc && node dist/index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
